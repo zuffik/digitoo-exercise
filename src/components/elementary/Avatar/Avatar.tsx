@@ -16,6 +16,7 @@ export const Avatar: React.FC<Props> = (props: Props) => {
       className={classNames(props.className, styles.avatar)}
       width={size}
       height={size}
+      style={{...props.style, minWidth: size + 'px'}}
     />
   );
 };
