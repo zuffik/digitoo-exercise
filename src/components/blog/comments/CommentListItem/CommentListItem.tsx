@@ -7,12 +7,11 @@ import { VoteControls } from "../../votes/VoteControls/VoteControls";
 
 interface Props {
   comment: Comment;
+  onUpVote: React.MouseEventHandler<HTMLButtonElement>;
+  onDownVote: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const CommentListItem: React.FC<Props> = (props: Props) => {
-  const onUpVote = () => {};
-  const onDownVote = () => {};
-
   return (
     <div className="d-flex flex-row mb-4">
       {/*no avatar?*/}
@@ -27,8 +26,8 @@ export const CommentListItem: React.FC<Props> = (props: Props) => {
         <p className={styles.content}>{props.comment.content}</p>
         <VoteControls
           score={props.comment.score}
-          onUpVote={onUpVote}
-          onDownVote={onDownVote}
+          onUpVote={props.onUpVote}
+          onDownVote={props.onDownVote}
         />
       </div>
     </div>
