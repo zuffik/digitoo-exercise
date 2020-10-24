@@ -11,24 +11,24 @@ import {RemoteImage} from '../../elementary/RemoteImage/RemoteImage';
 interface Props {}
 
 export const LandingPage: React.FC<Props> = (props: Props) => {
-    const [{data, error, loading}] = useGet<List<Article>>(`/articles`);
+  const [{data, error, loading}] = useGet<List<Article>>(`/articles`);
 
-    return (
-        <>
-            <h2 className="my-5">Recent articles</h2>
-            {!loading && !error ? (
-                <ListView
-                    items={data.items || []}
-                    pagination={data.pagination}
-                    render={(article: Article) => (
-                        <ArticlePreview article={article} image={<RemoteImage imageId={article.imageId} />} />
-                    )}
-                />
-            ) : loading ? (
-                <CenteredSpinner />
-            ) : (
-                <Alert type="danger">There was an error</Alert>
-            )}
-        </>
-    );
+  return (
+    <>
+      <h2 className="my-5">Recent articles</h2>
+      {!loading && !error ? (
+        <ListView
+          items={data.items || []}
+          pagination={data.pagination}
+          render={(article: Article) => (
+            <ArticlePreview article={article} image={<RemoteImage imageId={article.imageId} />} />
+          )}
+        />
+      ) : loading ? (
+        <CenteredSpinner />
+      ) : (
+        <Alert type="danger">There was an error</Alert>
+      )}
+    </>
+  );
 };

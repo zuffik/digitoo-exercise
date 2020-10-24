@@ -1,4 +1,4 @@
 export interface ImageInfo {
-    imageId: string;
-    name: string;
+  imageId: string;
+  name: string;
 }

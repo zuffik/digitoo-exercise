@@ -4,11 +4,11 @@ import {IconButton} from './IconButton';
 import {action} from '@storybook/addon-actions';
 
 export default {
-    title: 'Elementary/Form',
+  title: 'Elementary/Form',
 };
 
 export const iconButton = () => (
-    <IconButton onClick={action('onClick')}>
-        <FaPen />
-    </IconButton>
+  <IconButton onClick={action('onClick')}>
+    <FaPen />
+  </IconButton>
 );

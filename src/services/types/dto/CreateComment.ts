@@ -1,4 +1,4 @@
 export interface CreateComment {
-    content: string;
-    author: string;
+  content: string;
+  author: string;
 }

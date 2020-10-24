@@ -5,12 +5,12 @@ import {list} from '../../../../services/data/random/List';
 import {action} from '@storybook/addon-actions';
 
 export default {
-    title: 'Blog/Admin',
+  title: 'Blog/Admin',
 };
 export const articleTable = () => (
-    <ArticleTable
-        articles={list(article)}
-        onEditArticleClick={action('onEditArticleClick')}
-        onRemoveArticleClick={action('onRemoveArticleClick')}
-    />
+  <ArticleTable
+    articles={list(article)}
+    onEditArticleClick={action('onEditArticleClick')}
+    onRemoveArticleClick={action('onRemoveArticleClick')}
+  />
 );

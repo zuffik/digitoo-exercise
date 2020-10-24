@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Alert} from './Alert';
 
 export default {
-    title: 'Elementary/Alert',
+  title: 'Elementary/Alert',
 };
 
 export const danger = () => <Alert type="danger">Alert text</Alert>;

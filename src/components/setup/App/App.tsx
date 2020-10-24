@@ -10,11 +10,11 @@ interface Props {}
 const store = createStore();
 
 export const App: React.FC<Props> = (props: Props) => {
-    return (
-        <Provider store={store}>
-            <BrowserRouter>
-                <MainRouterLayout />
-            </BrowserRouter>
-        </Provider>
-    );
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <MainRouterLayout />
+      </BrowserRouter>
+    </Provider>
+  );
 };

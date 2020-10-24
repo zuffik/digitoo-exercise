@@ -8,16 +8,16 @@ import {ArticleDetailView} from '../../../pages/ArticleDetailView/ArticleDetailV
 interface Props {}
 
 export const PublicRouterLayout: React.FC<Props> = (props: Props) => {
-    return (
-        <NavBarLayout>
-            <Switch>
-                <Route path={Routes.home()} exact>
-                    <LandingPage />
-                </Route>
-                <Route path={Routes.articleDetail()} exact>
-                    <ArticleDetailView />
-                </Route>
-            </Switch>
-        </NavBarLayout>
-    );
+  return (
+    <NavBarLayout>
+      <Switch>
+        <Route path={Routes.home()} exact>
+          <LandingPage />
+        </Route>
+        <Route path={Routes.articleDetail()} exact>
+          <ArticleDetailView />
+        </Route>
+      </Switch>
+    </NavBarLayout>
+  );
 };
