@@ -9,6 +9,12 @@ export const useGet = <T>(url: string, config?: Omit<AxiosRequestConfig, 'method
     method: 'get',
     url,
   });
+export const useDelete = <T>(url: string, config?: Omit<AxiosRequestConfig, 'method' | 'url'>, opts?: Options) =>
+  useAxios<T>({
+    ...config,
+    method: 'delete',
+    url,
+  });
 export const usePost = <T>(
   url: string,
   config?: Omit<AxiosRequestConfig, 'method' | 'url'>,

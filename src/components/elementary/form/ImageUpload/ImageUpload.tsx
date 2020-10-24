@@ -3,7 +3,7 @@ import {FileImage} from "../../FileImage/FileImage";
 import styles from './ImageUpload.module.sass';
 import {useFetchRemoteImage} from "../../../../hooks/RemoteImage";
 import {useIsStorybook} from "../../../storybook/StorybookContext";
-import {usePost} from "../../../../hooks/Http";
+import {useAxios, usePost} from "../../../../hooks/Http";
 import {ImageInfo} from "../../../../services/types/entity/ImageInfo";
 import {Spinner} from "../../progress/Spinner/Spinner";
 
@@ -14,14 +14,22 @@ interface Props {
 
 export const ImageUpload: React.FC<Props> = ({existingImageId, onUploadFinished, ...props}: Props) => {
     const [file, setFile] = React.useState<File | undefined>(undefined);
+    const [imageId, setImageId] = React.useState<string | undefined>(existingImageId);
     const [, image] = useFetchRemoteImage(existingImageId) || [];
     const isStorybook = useIsStorybook();
-    const [{loading, data, error}, uploadImage] = usePost<ImageInfo>(`/images`, {}, {manual: true});
+    const [{loading, data, error}, uploadImage] = usePost<ImageInfo[]>(`/images`, {}, {manual: true});
+    const [, deleteImage] = useAxios({method: 'delete'}, {manual: true});
     React.useEffect(() => {
         if (data && !loading && !error && file) {
-            onUploadFinished?.(data, file);
+            // emit event after uploading
+            onUploadFinished?.(data[0], file);
+            // delete old if exists
+            if (imageId) {
+                deleteImage({url: `/image/${imageId}`});
+            }
+            setImageId(data[0].imageId);
         }
-    }, [loading, data, error, onUploadFinished, file]);
+    }, [loading, data, error, onUploadFinished, file, deleteImage, imageId]);
     React.useEffect(() => {
         if (image) {
             setFile(image);
@@ -31,8 +39,9 @@ export const ImageUpload: React.FC<Props> = ({existingImageId, onUploadFinished,
         const file = e.target.files?.[0];
         setFile(file);
         if (!isStorybook) {
+            // upload new image
             const fd = new FormData();
-            fd.append('image', file as Blob);
+            fd.append('image[0]', file as Blob);
             uploadImage({
                 headers: {
                     'Content-Type': undefined
