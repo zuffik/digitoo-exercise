@@ -3,5 +3,10 @@ export const Routes = {
   recentArticles: () => Routes.home(),
   about: () => '/about',
   login: () => '/login',
-  articleDetail: (id: string = ':id') => `/article/${id}`,
+  articles: {
+    my: () => '/article/my',
+    create: () => '/article/create',
+    edit: (id: string = ':id') => `/article/${id}/edit`,
+    detail: (id: string = ':id') => `/article/${id}`,
+  },
 };
