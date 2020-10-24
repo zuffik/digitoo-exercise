@@ -9,7 +9,7 @@ git clone https://github.com/zuffik/digitoo-exercise.git
 cd digitoo-exercise
 yarn
 yarn start     # to start application
-# or 
+               # or 
 yarn storybook # to start storybook
 ```
 
