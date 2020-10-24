@@ -8,7 +8,9 @@ To setup the project:
 git clone https://github.com/zuffik/digitoo-exercise.git
 cd digitoo-exercise
 yarn
-yarn start
+yarn start     # to start application
+# or 
+yarn storybook # to start storybook
 ```
 
 But before startup you need to fill in environment variables:
