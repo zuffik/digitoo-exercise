@@ -1,4 +1,4 @@
-import 'bootstrap/scss/bootstrap.scss';
+import '../src/components/setup/App/App.sass';
 import {addDecorator} from '@storybook/react';
 import StoryRouter from 'storybook-react-router';
 

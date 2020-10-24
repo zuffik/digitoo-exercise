@@ -1,10 +1,10 @@
 import * as React from "react";
 import {Avatar} from "../../../elementary/Avatar/Avatar";
-import {Field, Form, Formik} from "formik";
+import {Form, Formik} from "formik";
 import * as Yup from "yup";
-import classNames from "classnames";
 import {CreateComment} from "../../../../services/types/dto/CreateComment";
 import {Spinner} from "../../../elementary/progress/Spinner/Spinner";
+import {Field} from "../../../elementary/form/Field/Field";
 
 const validationSchema = Yup.object({
     content: Yup.string().required("Please fill in the comment"),
@@ -40,29 +40,21 @@ export const CommentForm: React.FC<Props> = (props: Props) => {
                                 <div className="row">
                                     <div className="col-12 col-sm-6">
                                         <Field
+                                            disableLabel
                                             name="author"
-                                            className={classNames('form-control', {
-                                                'is-invalid': touched.author && errors.author,
-                                                'is-valid': touched.author && !errors.author,
-                                            })}
-                                            placeholder="Author"
+                                            label="Author"
+                                            error={errors.author}
+                                            touched={touched.author}
                                         />
-                                        <small className="text-danger ml-2">
-                                            {(touched.author && errors.author) || " "}
-                                        </small>
                                     </div>
                                     <div className="col-12 col-sm-6">
                                         <Field
+                                            disableLabel
                                             name="content"
-                                            className={classNames('form-control', {
-                                                'is-invalid': touched.content && errors.content,
-                                                'is-valid': touched.content && !errors.content,
-                                            })}
-                                            placeholder="Join the discussion"
+                                            label="Join the discussion"
+                                            error={errors.content}
+                                            touched={touched.content}
                                         />
-                                        <small className="text-danger ml-2">
-                                            {(touched.content && errors.content) || " "}
-                                        </small>
                                     </div>
                                 </div>
                             </Form>

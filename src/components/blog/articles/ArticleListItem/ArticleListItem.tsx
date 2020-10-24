@@ -29,7 +29,7 @@ export const ArticleListItem: React.FC<Props> = (props: Props) => {
         <div className="d-flex flex-row justify-content-start align-items-center">
           <Link
             to={Routes.articleDetail(props.article.articleId)}
-            className="p-2"
+            className="btn btn-link"
           >
             Read whole article
           </Link>
