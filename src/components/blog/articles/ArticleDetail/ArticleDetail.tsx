@@ -3,6 +3,7 @@ import {ArticleDetail as ArticleDetailDTO} from '../../../../services/types/enti
 import {ArticleCreationInfo} from '../ArticleCreationInfo/ArticleCreationInfo';
 import styles from './ArticleDetail.module.sass';
 import {RemoteImage} from "../../../elementary/RemoteImage/RemoteImage";
+import ReactMarkdown from 'react-markdown'
 
 interface Props {
   article: ArticleDetailDTO;
@@ -16,7 +17,9 @@ export const ArticleDetail: React.FC<Props> = (props: Props) => {
       <div className="my-4">
           <RemoteImage imageId={props.article.imageId} />
       </div>
-      <div className={styles.content} dangerouslySetInnerHTML={{__html: props.article.content}} />
+      <ReactMarkdown className={styles.content}>
+          {props.article.content}
+      </ReactMarkdown>
     </>
   );
 };
