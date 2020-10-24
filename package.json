@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@uiw/react-md-editor": "1.14.5",
     "axios": "0.20.0",
     "axios-hooks": "2.1.0",
     "bootstrap": "4.5.3",

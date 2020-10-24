@@ -4,16 +4,18 @@ import {ArticleCreationInfo} from '../ArticleCreationInfo/ArticleCreationInfo';
 import {Link} from 'react-router-dom';
 import {Routes} from '../../../../services/routes/Routes';
 import {ArticleMiniature} from '../ArticleMiniature/ArticleMiniature';
+import {RemoteImage} from "../../../elementary/RemoteImage/RemoteImage";
 
 interface Props {
   article: Article;
-  image: React.ReactNode;
 }
 
 export const ArticlePreview: React.FC<Props> = (props: Props) => {
   return (
     <div className="row">
-      <div className="col-12 col-sm-4 col-lg-2">{props.image}</div>
+      <div className="col-12 col-sm-4 col-lg-2">
+        <RemoteImage imageId={props.article.imageId} />
+      </div>
       <div className="col-12 col-sm-8 col-lg-10">
         <ArticleMiniature title={props.article.title} perex={props.article.perex}>
           <div className="my-2">

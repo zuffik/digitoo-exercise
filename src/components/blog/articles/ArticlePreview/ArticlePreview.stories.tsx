@@ -7,7 +7,6 @@ export default {
 
 export const listItem = () => (
   <ArticlePreview
-    image={<img src="https://picsum.photos/200" alt="random" />}
     article={{
       articleId: '123',
       createdAt: '2020-01-01',

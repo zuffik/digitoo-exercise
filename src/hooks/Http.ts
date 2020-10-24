@@ -1,5 +1,5 @@
 import {makeUseAxios, Options} from 'axios-hooks';
-import {httpClient} from './HttpClient';
+import {httpClient} from '../services/http/HttpClient';
 import {AxiosRequestConfig} from 'axios';
 
 export const useAxios = makeUseAxios({cache: undefined, axios: httpClient});
@@ -18,4 +18,4 @@ export const usePost = <T>(
     ...config,
     method: 'post',
     url,
-  });
+  }, opts);

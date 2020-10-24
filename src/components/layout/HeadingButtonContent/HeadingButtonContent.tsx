@@ -6,17 +6,18 @@ interface Props {
   buttonText: React.ReactText;
   onButtonClick: React.MouseEventHandler<HTMLButtonElement>;
   children: React.ReactNode;
+  loading?: boolean;
 }
 
 export const HeadingButtonContent: React.FC<Props> = (props: Props) => {
   return (
     <>
-      <div className="row">
+      <div className="row mb-8">
         <div className="col-auto">
           <h2>{props.heading}</h2>
         </div>
         <div className="col-auto">
-          <Button onClick={props.onButtonClick}>{props.buttonText}</Button>
+          <Button loading={props.loading} onClick={props.onButtonClick}>{props.buttonText}</Button>
         </div>
       </div>
       {props.children}

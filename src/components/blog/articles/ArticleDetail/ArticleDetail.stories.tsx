@@ -7,7 +7,6 @@ export default {
 
 export const detail = () => (
   <ArticleDetail
-    image={<img src="https://picsum.photos/500/200" alt="random" width="100%" />}
     article={{
       articleId: '123',
       title: 'Lorem ipsum',

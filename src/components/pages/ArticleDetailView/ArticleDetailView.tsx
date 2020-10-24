@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {ListView} from '../../layout/ListView/ListView';
 import {useParams} from 'react-router';
-import {useAxios, useGet, usePost} from '../../../services/http/HttpHooks';
 import {ArticleDetail as ArticleDetailDTO} from '../../../services/types/entity/ArticleDetail';
 import classNames from 'classnames';
 import styles from './ArticleDetailView.module.sass';
@@ -16,6 +15,7 @@ import {CommentListItem} from '../../blog/comments/CommentListItem/CommentListIt
 import {RemoteImage} from '../../elementary/RemoteImage/RemoteImage';
 import {Comment} from '../../../services/types/entity/Comment';
 import {CreateComment} from '../../../services/types/dto/CreateComment';
+import {useAxios, useGet, usePost} from "../../../hooks/Http";
 
 interface Props {}
 
@@ -55,7 +55,7 @@ export const ArticleDetailView: React.FC<Props> = (props: Props) => {
         <div className="col-12 col-md-8 order-1 order-md-0">
           {article ? (
             <>
-              <ArticleDetail article={article} image={<RemoteImage imageId={article.imageId} />} />
+              <ArticleDetail article={article} />
               <hr className="mt-5 mb-4" />
               {/*todo move to comment section, due to websockets*/}
               <CommentForm

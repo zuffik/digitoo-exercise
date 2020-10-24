@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {Alert} from '../../elementary/Alert/Alert';
-import {useGet} from '../../../services/http/HttpHooks';
 import {List} from '../../../services/types/entity/List';
 import {Article} from '../../../services/types/entity/Article';
 import {CenteredSpinner} from '../../elementary/progress/CenteredSpinner/CenteredSpinner';
 import {ListView} from '../../layout/ListView/ListView';
 import {ArticlePreview} from '../../blog/articles/ArticlePreview/ArticlePreview';
 import {RemoteImage} from '../../elementary/RemoteImage/RemoteImage';
+import {useGet} from "../../../hooks/Http";
 
 interface Props {}
 
@@ -21,7 +21,7 @@ export const LandingPage: React.FC<Props> = (props: Props) => {
           items={data.items || []}
           pagination={data.pagination}
           render={(article: Article) => (
-            <ArticlePreview article={article} image={<RemoteImage imageId={article.imageId} />} />
+            <ArticlePreview article={article} />
           )}
         />
       ) : loading ? (
