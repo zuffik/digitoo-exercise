@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Field as FormikField} from "formik";
-import classNames from "classnames";
+import {Field as FormikField} from 'formik';
+import classNames from 'classnames';
 import styles from './Field.module.sass';
 
 interface Props extends Omit<JSX.IntrinsicElements['input'], 'placeholder'> {
@@ -15,10 +15,14 @@ export const Field: React.FC<Props> = ({error, touched, label, ...props}: Props)
         <div className="form-group">
             <label className={styles.field}>
                 {!props.disableLabel && <span className="mb-2 d-block">{label}</span>}
-                <FormikField {...props} placeholder={label} className={classNames(props.className, 'form-control', {
-                    'is-invalid': touched && error,
-                    'is-valid': touched && !error,
-                })}/>
+                <FormikField
+                    {...props}
+                    placeholder={label}
+                    className={classNames(props.className, 'form-control', {
+                        'is-invalid': touched && error,
+                        'is-valid': touched && !error,
+                    })}
+                />
                 <small className="text-danger form-text">{(touched && error) || ' '}</small>
             </label>
         </div>

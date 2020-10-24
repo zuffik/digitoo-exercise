@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button} from "../../elementary/form/Button/Button";
+import {Button} from '../../elementary/form/Button/Button';
 
 interface Props {
     heading: React.ReactText;

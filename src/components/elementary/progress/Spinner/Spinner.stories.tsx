@@ -1,7 +1,7 @@
-import { Spinner } from "./Spinner";
+import {Spinner} from './Spinner';
 
 export default {
-  title: "Elementary/Progress/Spinner",
+    title: 'Elementary/Progress/Spinner',
 };
 
 export const spinner = Spinner;

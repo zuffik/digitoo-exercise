@@ -54,4 +54,4 @@ export default `
     <mark>Magna laus.</mark>
     An hoc usque quaque, aliter in vita?
 </p>
-`
+`;

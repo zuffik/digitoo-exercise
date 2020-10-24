@@ -1,5 +1,5 @@
-import {Article} from "../../types/entity/Article";
-import * as faker from "faker";
+import {Article} from '../../types/entity/Article';
+import * as faker from 'faker';
 
 export const article = (): Article => ({
     articleId: faker.random.uuid(),
@@ -8,4 +8,4 @@ export const article = (): Article => ({
     perex: faker.lorem.sentences(2),
     title: faker.lorem.sentence(),
     imageId: faker.random.uuid(),
-})
+});

@@ -1,10 +1,8 @@
-import * as React from "react";
-import { Avatar } from "./Avatar";
+import * as React from 'react';
+import {Avatar} from './Avatar';
 
 export default {
-  title: "Elementary",
+    title: 'Elementary',
 };
 
-export const avatar = () => (
-  <Avatar src="https://picsum.photos/48" alt="avatar" />
-);
+export const avatar = () => <Avatar src="https://picsum.photos/48" alt="avatar" />;

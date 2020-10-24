@@ -24,4 +24,4 @@ export default `
     irridebat: Quid enim? Maximas vero virtutes iacere omnis necesse est voluptate dominante. Qui-vere falsone, quaerere
     mittimus-dicitur oculis se privasse; Duo enim genera quae erant, fecit tria. Traditur, inquit, ab Epicuro ratio
     neglegendi doloris. Obsecro, inquit, Torquate, haec dicit Epicurus? </p>
-`
+`;

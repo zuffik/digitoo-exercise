@@ -9,6 +9,10 @@ interface Props extends React.HtmlHTMLAttributes<HTMLSpanElement> {
 export const TextEllipsis: React.FC<Props> = (props: Props) => {
     const maxWidth = props.maxWidth || 'none';
     return (
-        <span {...props} className={classNames(props.className, styles.text)} style={{...props.style, maxWidth: typeof maxWidth == 'number' ? maxWidth + 'px' : maxWidth}}/>
+        <span
+            {...props}
+            className={classNames(props.className, styles.text)}
+            style={{...props.style, maxWidth: typeof maxWidth == 'number' ? maxWidth + 'px' : maxWidth}}
+        />
     );
 };

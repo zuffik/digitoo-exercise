@@ -1,24 +1,22 @@
-import * as React from "react";
-import { ArticleDetail } from "./ArticleDetail";
+import * as React from 'react';
+import {ArticleDetail} from './ArticleDetail';
 
 export default {
-  title: "Blog/Articles",
+    title: 'Blog/Articles',
 };
 
 export const detail = () => (
-  <ArticleDetail
-    image={
-      <img src="https://picsum.photos/500/200" alt="random" width="100%" />
-    }
-    article={{
-      articleId: "123",
-      title: "Lorem ipsum",
-      createdAt: "2020-01-01",
-      lastUpdatedAt: "2020-01-01",
-      perex:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur mollis nibh, eget semper mauris",
-      imageId: "13",
-      content: `
+    <ArticleDetail
+        image={<img src="https://picsum.photos/500/200" alt="random" width="100%" />}
+        article={{
+            articleId: '123',
+            title: 'Lorem ipsum',
+            createdAt: '2020-01-01',
+            lastUpdatedAt: '2020-01-01',
+            perex:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur mollis nibh, eget semper mauris',
+            imageId: '13',
+            content: `
         <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur mollis nibh, eget semper mauris 
         lacinia eu. Cras lobortis mauris laoreet, eleifend dolor ut, pulvinar neque. Nam porta nisi velit, eget sagittis
@@ -36,7 +34,7 @@ export const detail = () => (
         dictumst. Fusce ut sem nisi.
         </p>
         `,
-      comments: [],
-    }}
-  />
+            comments: [],
+        }}
+    />
 );

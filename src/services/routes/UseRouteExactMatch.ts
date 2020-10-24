@@ -1,7 +1,7 @@
-import { useRouteMatch } from "react-router";
+import {useRouteMatch} from 'react-router';
 
 export const useRouteExactMatch = (path: string) =>
-  !!useRouteMatch({
-    exact: true,
-    path,
-  });
+    !!useRouteMatch({
+        exact: true,
+        path,
+    });

@@ -1,7 +1,7 @@
-import { Warning } from "./Warning";
+import {Warning} from './Warning';
 
 export default {
-  title: "Elementary",
+    title: 'Elementary',
 };
 
 export const warning = Warning;

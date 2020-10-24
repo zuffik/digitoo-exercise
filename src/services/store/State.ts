@@ -1,3 +1,3 @@
 export class State {
-  isLoading: boolean = false;
+    isLoading: boolean = false;
 }
