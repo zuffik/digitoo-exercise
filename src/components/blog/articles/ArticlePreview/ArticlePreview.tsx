@@ -10,7 +10,7 @@ interface Props {
   image: React.ReactNode;
 }
 
-export const ArticleListItem: React.FC<Props> = (props: Props) => {
+export const ArticlePreview: React.FC<Props> = (props: Props) => {
   return (
     <div className="row">
       <div className="col-12 col-sm-4 col-lg-2">{props.image}</div>

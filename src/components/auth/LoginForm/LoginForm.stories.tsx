@@ -4,7 +4,7 @@ import {action} from "@storybook/addon-actions";
 import {boolean} from "@storybook/addon-knobs";
 
 export default {
-    title: 'User/Auth'
+    title: 'Auth'
 }
 
 export const loginForm = () => (

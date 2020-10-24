@@ -5,7 +5,7 @@ import {List} from "../../../services/types/entity/List";
 import {Article} from "../../../services/types/entity/Article";
 import {CenteredSpinner} from "../../elementary/progress/CenteredSpinner/CenteredSpinner";
 import {ListView} from "../../layout/ListView/ListView";
-import {ArticleListItem} from "../../blog/articles/ArticleListItem/ArticleListItem";
+import {ArticlePreview} from "../../blog/articles/ArticlePreview/ArticlePreview";
 import {RemoteImage} from "../../elementary/RemoteImage/RemoteImage";
 
 interface Props {
@@ -22,7 +22,7 @@ export const LandingPage: React.FC<Props> = (props: Props) => {
                     items={data.items || []}
                     pagination={data.pagination}
                     render={(article: Article) => (
-                        <ArticleListItem
+                        <ArticlePreview
                             article={article}
                             image={<RemoteImage imageId={article.imageId}/>}
                         />
