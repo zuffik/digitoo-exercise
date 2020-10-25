@@ -17,13 +17,14 @@ export const Field: React.FC<Props> = ({error, touched, label, ...props}: Props)
         {!props.disableLabel && <span className="mb-2 d-block">{label}</span>}
         <FormikField
           {...props}
+            data-testid="field-input"
           placeholder={label}
           className={classNames(props.className, 'form-control', {
             'is-invalid': touched && error,
             'is-valid': touched && !error,
           })}
         />
-        <small className="text-danger form-text">{(touched && error) || ' '}</small>
+        <small className="text-danger form-text" data-testid="field-helper-text">{(touched && error) || ' '}</small>
       </label>
     </div>
   );

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FileImage/> should render 1`] = `
+<DocumentFragment>
+  <img
+    alt="id"
+    src="source"
+  />
+</DocumentFragment>
+`;

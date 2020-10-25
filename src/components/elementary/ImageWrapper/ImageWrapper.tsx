@@ -8,7 +8,7 @@ interface Props {
 
 export const ImageWrapper: React.FC<Props> = (props: Props) => {
     return (
-        <div className={styles.root} style={{height: props.height + 'px'}}>
+        <div className={styles.root} data-testid="image-wrapper" style={{height: props.height + 'px'}}>
             {props.children}
         </div>
     );

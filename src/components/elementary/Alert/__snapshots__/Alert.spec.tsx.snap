@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Alert/> should have alert classes 1`] = `
+<DocumentFragment>
+  <div
+    class="alert alert-danger"
+  >
+    alert content
+  </div>
+</DocumentFragment>
+`;

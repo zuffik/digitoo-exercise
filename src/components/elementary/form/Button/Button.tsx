@@ -16,18 +16,21 @@ export const Button: React.FC<Props> = ({loading, color, large, ...props}: Props
   return (
     <button
       {...props}
+      data-testid="btn"
       className={classNames(props.className, styles.btn, 'btn', `btn-${btnColor}`, large && 'btn-lg')}
       disabled={disabled}
     >
       <span
-        className={classNames(styles.inner, {
+          data-testid="btn-label"
+          className={classNames(styles.inner, {
           [styles.innerHidden]: loading,
         })}
       >
         {props.children}
       </span>
       <span
-        className={classNames(styles.spinner, {
+          data-testid="btn-spinner"
+          className={classNames(styles.spinner, {
           [styles.spinnerVisible]: loading,
         })}
       >

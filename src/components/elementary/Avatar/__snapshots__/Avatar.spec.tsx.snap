@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Avatar/> should render 1`] = `
+<DocumentFragment>
+  <img
+    alt="id"
+    class="avatar"
+    height="48"
+    src="image.png"
+    style="min-width: 48px;"
+    width="48"
+  />
+</DocumentFragment>
+`;
+
+exports[`<Avatar/> should render with specific size 1`] = `
+<DocumentFragment>
+  <img
+    alt="id"
+    class="avatar"
+    height="50"
+    size="50"
+    src="image.png"
+    style="min-width: 50px;"
+    width="50"
+  />
+</DocumentFragment>
+`;

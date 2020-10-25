@@ -40,19 +40,19 @@ export const ImageUpload: React.FC<Props> = ({onUploadFinished, ...props}: Props
         <>
             {
                 !file
-                    ? <label htmlFor="upload" className="btn btn-secondary">Upload an Image</label>
+                    ? <label htmlFor="upload" data-testid="image-upload-large" className="btn btn-secondary">Upload an Image</label>
                     : (
                         <>
-                            <FileImage file={file}/>
+                            <FileImage data-testid="image-upload-img" file={file}/>
                             <div className="d-flex flex-row align-items-center mt-3">
-                                <label htmlFor="upload" className="text-primary m-0">Upload new</label>
+                                <label htmlFor="upload" data-testid="image-upload-small" className="text-primary m-0">Upload new</label>
                                 <span className="text-muted mx-2"> | </span>
-                                <button className={styles.delete} onClick={onRemoveImage}>Delete</button>
+                                <button className={styles.delete} onClick={onRemoveImage} data-testid="image-upload-remove">Delete</button>
                             </div>
                         </>
                     )
             }
-            <input type="file" className="d-none" id="upload" onChange={onFileChange}/>
+            <input type="file" className="d-none" id="upload" data-testid="image-upload-input" onChange={onFileChange}/>
             {uploading.loading && <Spinner size={16}/>}
         </>
     );

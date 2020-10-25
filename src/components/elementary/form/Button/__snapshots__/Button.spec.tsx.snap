@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button/> should render 1`] = `
+<DocumentFragment>
+  <button
+    class="btn btn btn-primary"
+    data-testid="btn"
+  >
+    <span
+      class="inner"
+      data-testid="btn-label"
+    />
+    <span
+      class="spinner"
+      data-testid="btn-spinner"
+    >
+      <div
+        class="spinner-border"
+        size="20"
+        style="width: 20px; height: 20px;"
+      />
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`<Button/> should render with spinner 1`] = `
+<DocumentFragment>
+  <button
+    class="btn btn btn-primary"
+    data-testid="btn"
+    disabled=""
+  >
+    <span
+      class="inner innerHidden"
+      data-testid="btn-label"
+    />
+    <span
+      class="spinner spinnerVisible"
+      data-testid="btn-spinner"
+    >
+      <div
+        class="spinner-border"
+        size="20"
+        style="width: 20px; height: 20px;"
+      />
+    </span>
+  </button>
+</DocumentFragment>
+`;

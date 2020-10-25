@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ImageUpload/> should upload image 1`] = `
+<DocumentFragment>
+  <img
+    data-testid="image-upload-img"
+    src="source"
+  />
+  <div
+    class="d-flex flex-row align-items-center mt-3"
+  >
+    <label
+      class="text-primary m-0"
+      data-testid="image-upload-small"
+      for="upload"
+    >
+      Upload new
+    </label>
+    <span
+      class="text-muted mx-2"
+    >
+       | 
+    </span>
+    <button
+      class="delete"
+      data-testid="image-upload-remove"
+    >
+      Delete
+    </button>
+  </div>
+  <input
+    class="d-none"
+    data-testid="image-upload-input"
+    id="upload"
+    type="file"
+  />
+  <div
+    class="spinner-border"
+    size="16"
+    style="width: 16px; height: 16px;"
+  />
+</DocumentFragment>
+`;
+
+exports[`<ImageUpload/> should upload image and remove it 1`] = `
+<DocumentFragment>
+  <label
+    class="btn btn-secondary"
+    data-testid="image-upload-large"
+    for="upload"
+  >
+    Upload an Image
+  </label>
+  <input
+    class="d-none"
+    data-testid="image-upload-input"
+    id="upload"
+    type="file"
+  />
+  <div
+    class="spinner-border"
+    size="16"
+    style="width: 16px; height: 16px;"
+  />
+</DocumentFragment>
+`;

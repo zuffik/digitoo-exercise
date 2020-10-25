@@ -18,8 +18,8 @@ export const RemoteImage: React.FC<Props> = (props: Props) => {
     }
     const {imageId, ...rest} = props;
 
+    if (error) return <Warning data-testid="remote-image-warning"/>;
     if (!imageId) return <img alt="placeholder" src="https://via.placeholder.com/500x200"/>
-    if (loading || !image) return <CenteredSpinner/>;
-    if (error) return <Warning/>;
-    return <FileImage {...rest} file={image}/>;
+    if (loading || !image) return <CenteredSpinner data-testid="remote-image-spinner"/>;
+    return <FileImage {...rest} data-testid="remote-image-img" file={image}/>;
 };

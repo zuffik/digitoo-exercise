@@ -20,5 +20,8 @@ REACT_APP_TENANT_ID=
 REACT_APP_API_KEY=
 ```
 
-(For the sake of simplicity 
-[here](https://github.com/zuffik/digitoo-exercise/blob/1e92ccac05b992b869953872f3b2ee2774117f3b/.env) are mine)
+
+## Problems with api
+
+* `DELETE /images/:imageId` returns http code `405`
+* `GET /articles` items don't contain `imageId`
