@@ -8,6 +8,7 @@ import {ArticlePreview} from '../../blog/articles/ArticlePreview/ArticlePreview'
 import {defaultHttpState, HttpState} from "../../../services/types/HttpState";
 import {handleHttpPromise} from "../../../services/http/HttpPromise";
 import {httpClient} from "../../../services/http/HttpClient";
+import {stringify} from "querystring";
 
 interface Props {
 }
@@ -15,8 +16,10 @@ interface Props {
 export const LandingPage: React.FC<Props> = (props: Props) => {
     const [{data, error, loading}, setArticles] = React.useState<HttpState<List<Article>>>(defaultHttpState);
     React.useEffect(() => {
-        handleHttpPromise(httpClient.get('/articles'), setArticles);
+        fetchArticles(0, 10);
     }, []);
+    const fetchArticles = (offset: number, limit: number) =>
+        handleHttpPromise(httpClient.get(`/articles?${stringify({limit, offset})}`), setArticles);
 
     return (
         <>
@@ -28,6 +31,7 @@ export const LandingPage: React.FC<Props> = (props: Props) => {
                     render={(article: Article) => (
                         <ArticlePreview article={article}/>
                     )}
+                    onOffsetChange={fetchArticles}
                 />
             ) : loading ? (
                 <CenteredSpinner/>

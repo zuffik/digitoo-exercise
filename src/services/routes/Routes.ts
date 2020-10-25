@@ -1,7 +1,6 @@
 export const Routes = {
   home: () => '/',
   recentArticles: () => Routes.home(),
-  about: () => '/about',
   login: () => '/login',
   articles: {
     my: () => '/article/my',

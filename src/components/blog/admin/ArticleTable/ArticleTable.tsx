@@ -5,11 +5,13 @@ import {Column, useSortBy, UseSortByColumnProps, useTable} from 'react-table';
 import {TableBasicActionButtons} from '../../../table/TableBasicActionButtons/TableBasicActionButtons';
 import {TableSortInfo} from '../../../table/TableSortInfo/TableSortInfo';
 import {TextEllipsis} from '../../../elementary/TextEllipsis/TextEllipsis';
+import {Pagination} from "../../../elementary/Pagination/Pagination";
 
 interface Props {
   articles: List<Article>;
   onEditArticleClick: (articleId: string) => void;
   onRemoveArticleClick: (articleId: string) => void;
+    onOffsetChange: (offset: number, limit: number) => void;
 }
 
 export const ArticleTable: React.FC<Props> = (props: Props) => {
@@ -97,7 +99,7 @@ export const ArticleTable: React.FC<Props> = (props: Props) => {
           </tbody>
         </table>
       </div>
-      {/*todo pagination*/}
+      <Pagination onOffsetChange={props.onOffsetChange} pagination={props.articles.pagination}/>
     </>
   );
 };

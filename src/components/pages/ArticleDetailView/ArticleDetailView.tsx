@@ -38,7 +38,7 @@ export const ArticleDetailView: React.FC<Props> = (props: Props) => {
     }, [article, params.id]);
     React.useEffect(() => {
         if (!relatedArticles.data) {
-            handleHttpPromise(httpClient.get(`/articles`), setRelatedArticles);
+            handleHttpPromise(httpClient.get(`/articles?limit=5`), setRelatedArticles);
         }
     }, [relatedArticles]);
     return (

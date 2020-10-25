@@ -10,6 +10,7 @@ export default {
 export const articleTable = () => (
   <ArticleTable
     articles={list(article)}
+    onOffsetChange={action('onOffsetChange')}
     onEditArticleClick={action('onEditArticleClick')}
     onRemoveArticleClick={action('onRemoveArticleClick')}
   />

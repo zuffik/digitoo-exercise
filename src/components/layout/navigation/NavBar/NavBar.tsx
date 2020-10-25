@@ -18,7 +18,6 @@ interface Props {
 export const NavBar: React.FC<Props> = (props: Props) => {
     const [dropdownOpen, setDropdownOpen] = React.useState<boolean>(false);
     const recentArticlesActive = useRouteExactMatch(Routes.recentArticles());
-    const aboutActive = useRouteExactMatch(Routes.about());
     const loginActive = useRouteExactMatch(Routes.login());
     const myArticlesActive = useRouteExactMatch(Routes.articles.my());
     const createArticleActive = useRouteExactMatch(Routes.articles.create());
@@ -32,9 +31,6 @@ export const NavBar: React.FC<Props> = (props: Props) => {
                     <div className="navbar-nav mr-auto">
                         <NavItem active={recentArticlesActive}>
                             <NavLink to={Routes.recentArticles()}>Recent articles</NavLink>
-                        </NavItem>
-                        <NavItem active={aboutActive}>
-                            <NavLink to={Routes.about()}>About</NavLink>
                         </NavItem>
                     </div>
                 </div>
