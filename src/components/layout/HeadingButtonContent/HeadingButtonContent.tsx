@@ -17,7 +17,7 @@ export const HeadingButtonContent: React.FC<Props> = (props: Props) => {
           <h2>{props.heading}</h2>
         </div>
         <div className="col-auto">
-          <Button loading={props.loading} onClick={props.onButtonClick}>{props.buttonText}</Button>
+          <Button data-testid="heading-button-main" loading={props.loading} onClick={props.onButtonClick}>{props.buttonText}</Button>
         </div>
       </div>
       {props.children}

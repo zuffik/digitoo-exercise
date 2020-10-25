@@ -13,7 +13,7 @@ export const TableBasicActionButtons: React.FC<Props> = (props: Props) => {
       <IconButton className="px-2" onClick={props.onEditClick}>
         <FaPen />
       </IconButton>
-      <IconButton className="px-2" onClick={props.onRemoveClick}>
+      <IconButton className="px-2" onClick={props.onRemoveClick} data-testid="btn-action-remove">
         <FaTrash />
       </IconButton>
     </>

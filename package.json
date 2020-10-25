@@ -57,6 +57,9 @@
     "@types/websocket": "1.0.1",
     "@types/yup": "0.29.8",
     "babel-loader": "^8.1.0",
+    "cypress": "5.4.0",
+    "cypress-dotenv": "1.2.2",
+    "cypress-file-upload": "4.1.1",
     "husky": "4.3.0",
     "lint-staged": "10.4.2",
     "node-sass": "4.14.1",
@@ -67,6 +70,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:e2e": "cypress run",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"

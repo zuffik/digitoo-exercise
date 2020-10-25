@@ -8,6 +8,7 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: Colors;
   loading?: boolean;
   large?: boolean;
+  'data-testid'?: string;
 }
 
 export const Button: React.FC<Props> = ({loading, color, large, ...props}: Props) => {
@@ -16,7 +17,7 @@ export const Button: React.FC<Props> = ({loading, color, large, ...props}: Props
   return (
     <button
       {...props}
-      data-testid="btn"
+      data-testid={props["data-testid"] || "btn"}
       className={classNames(props.className, styles.btn, 'btn', `btn-${btnColor}`, large && 'btn-lg')}
       disabled={disabled}
     >

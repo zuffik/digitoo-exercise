@@ -44,9 +44,9 @@ export const ArticleForm: React.FC<Props> = (props: Props) => {
                                       buttonText="Publish article"
                                       loading={props.loading}
                                       onButtonClick={() => handleSubmit()}>
-                    <Form>
-                        <Field label="Article title" name="title" error={errors.title} touched={touched.title}/>
-                        <Field label="Perex" name="perex" error={errors.perex} touched={touched.perex}/>
+                    <Form data-testid="article-form">
+                        <Field label="Article title" name="title" data-testid="article-form-title" error={errors.title} touched={touched.title}/>
+                        <Field label="Perex" name="perex" data-testid="article-form-perex" error={errors.perex} touched={touched.perex}/>
                         <div className="form-group my-6">
                             <label className="d-block">Featured image</label>
                             <ImageUpload imageId={values.imageId} onUploadFinished={({imageId}) => handleChange('imageId')(imageId)}/>

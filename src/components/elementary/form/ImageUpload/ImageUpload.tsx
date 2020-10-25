@@ -53,7 +53,7 @@ export const ImageUpload: React.FC<Props> = ({onUploadFinished, ...props}: Props
                     )
             }
             <input type="file" className="d-none" id="upload" data-testid="image-upload-input" onChange={onFileChange}/>
-            {uploading.loading && <Spinner size={16}/>}
+            {uploading.loading && <Spinner data-testid="image-upload-spinner" size={16}/>}
         </>
     );
 };

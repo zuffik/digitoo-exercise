@@ -8,6 +8,7 @@ interface Props extends Omit<JSX.IntrinsicElements['input'], 'placeholder'> {
   touched?: boolean;
   label: string;
   disableLabel?: boolean;
+  'data-testid'?: string;
 }
 
 export const Field: React.FC<Props> = ({error, touched, label, ...props}: Props) => {
@@ -17,7 +18,7 @@ export const Field: React.FC<Props> = ({error, touched, label, ...props}: Props)
         {!props.disableLabel && <span className="mb-2 d-block">{label}</span>}
         <FormikField
           {...props}
-            data-testid="field-input"
+            data-testid={props['data-testid'] || "field-input"}
           placeholder={label}
           className={classNames(props.className, 'form-control', {
             'is-invalid': touched && error,

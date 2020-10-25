@@ -45,7 +45,7 @@ export const MyArticlesPage: React.FC<Props> = (props: Props) => {
                                     onRemoveArticleClick={onRemoveArticle}
                                     onEditArticleClick={onEditArticle}/>
             }
-            {removedArticle.loading && <CenteredSpinner/>}
+            {removedArticle.loading && <CenteredSpinner data-testid="my-articles-remove-spinner"/>}
         </HeadingButtonContent>
     );
 };

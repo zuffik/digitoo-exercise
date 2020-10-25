@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IconButton/> should render 1`] = `
+<DocumentFragment>
+  <button
+    class="btn"
+  />
+</DocumentFragment>
+`;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextEllipsis/> should render 1`] = `
+<DocumentFragment>
+  <span
+    class="text"
+    style="max-width: none;"
+  />
+</DocumentFragment>
+`;
