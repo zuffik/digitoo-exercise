@@ -18,7 +18,7 @@ export const RemoteImage: React.FC<Props> = (props: Props) => {
     }
     const {imageId, ...rest} = props;
 
-    if (!imageId) return <img src="https://via.placeholder.com/500x200"/>
+    if (!imageId) return <img alt="placeholder" src="https://via.placeholder.com/500x200"/>
     if (loading || !image) return <CenteredSpinner/>;
     if (error) return <Warning/>;
     return <FileImage {...rest} file={image}/>;

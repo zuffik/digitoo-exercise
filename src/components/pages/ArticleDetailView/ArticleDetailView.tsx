@@ -27,7 +27,7 @@ export const ArticleDetailView: React.FC<Props> = (props: Props) => {
     const params = useParams<{ id: string }>();
     const articleId = React.useRef<string | undefined>();
     const [article, setArticle] = React.useState<HttpState<ArticleDetailDTO>>(defaultHttpState());
-    const [voteComment, setVoteComment] = React.useState<HttpState<Comment>>(defaultHttpState());
+    const [, setVoteComment] = React.useState<HttpState<Comment>>(defaultHttpState());
     const [newComment, setNewComment] = React.useState<HttpState<Comment>>(defaultHttpState());
     const [relatedArticles, setRelatedArticles] = React.useState<HttpState<List<Article>>>(defaultHttpState());
 

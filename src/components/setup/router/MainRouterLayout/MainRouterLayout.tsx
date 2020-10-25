@@ -9,6 +9,7 @@ import {StrictlyPublicRoute} from "../../../routes/StrictlyPublicRoute/StrictlyP
 import {StrictlyPrivateRoute} from "../../../routes/StrictlyPrivateRoute/StrictlyPrivateRoute";
 import {MyArticlesPage} from "../../../pages/MyArticlesPage/MyArticlesPage";
 import {CreateArticlePage} from "../../../pages/CreateArticlePage/CreateArticlePage";
+import {EditArticlePage} from '../../../pages/EditArticlePage/EditArticlePage';
 
 interface Props {
 }
@@ -28,6 +29,9 @@ export const MainRouterLayout: React.FC<Props> = (props: Props) => {
                 </StrictlyPrivateRoute>
                 <StrictlyPrivateRoute path={Routes.articles.create()} exact>
                     <CreateArticlePage/>
+                </StrictlyPrivateRoute>
+                <StrictlyPrivateRoute path={Routes.articles.edit()} exact>
+                    <EditArticlePage/>
                 </StrictlyPrivateRoute>
                 <Route path={Routes.articles.detail()} exact>
                     <ArticleDetailView/>

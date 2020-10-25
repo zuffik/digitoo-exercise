@@ -24,7 +24,7 @@ interface Props {
 export const ArticleForm: React.FC<Props> = (props: Props) => {
     const isEditing = !!props.article;
     const defaultValues: ArticleDraft = isEditing
-    ? {title: props.article!.title, perex: props.article!.perex, content: props.article!.content, imageId: props.article!.imageId}
+    ? {title: props.article!.title, perex: props.article!.perex, content: props.article!.content, imageId: props.article!.imageId || '123'/*has to be here*/}
     : {title: '', perex: '', content: '', imageId: undefined};
     return (
         <Formik initialValues={defaultValues}
