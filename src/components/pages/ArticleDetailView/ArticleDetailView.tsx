@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {ListView} from '../../layout/ListView/ListView';
-import {Comment} from "../../../services/types/entity/Comment";
 import {useParams} from 'react-router';
 import {ArticleDetail as ArticleDetailDTO} from '../../../services/types/entity/ArticleDetail';
 import classNames from 'classnames';
@@ -9,16 +8,14 @@ import {ArticleMiniature} from '../../blog/articles/ArticleMiniature/ArticleMini
 import {Spinner} from '../../elementary/progress/Spinner/Spinner';
 import {Alert} from '../../elementary/Alert/Alert';
 import {ArticleDetail} from '../../blog/articles/ArticleDetail/ArticleDetail';
-import {CommentForm} from '../../blog/comments/CommentForm/CommentForm';
-import {CommentListItem} from '../../blog/comments/CommentListItem/CommentListItem';
 import {Link} from 'react-router-dom';
 import {Routes} from "../../../services/routes/Routes";
 import {defaultHttpState, HttpState} from "../../../services/types/HttpState";
 import {httpClient} from "../../../services/http/HttpClient";
 import {List} from "../../../services/types/entity/List";
 import {Article} from "../../../services/types/entity/Article";
-import {CreateComment} from "../../../services/types/dto/CreateComment";
 import {handleHttpPromise} from "../../../services/http/HttpPromise";
+import {CommentSection} from "../../blog/comments/CommentSection/CommentSection";
 
 interface Props {
 }
@@ -27,8 +24,6 @@ export const ArticleDetailView: React.FC<Props> = (props: Props) => {
     const params = useParams<{ id: string }>();
     const articleId = React.useRef<string | undefined>();
     const [article, setArticle] = React.useState<HttpState<ArticleDetailDTO>>(defaultHttpState());
-    const [, setVoteComment] = React.useState<HttpState<Comment>>(defaultHttpState());
-    const [newComment, setNewComment] = React.useState<HttpState<Comment>>(defaultHttpState());
     const [relatedArticles, setRelatedArticles] = React.useState<HttpState<List<Article>>>(defaultHttpState());
 
     const fetchArticle = (id: string) => {
@@ -46,18 +41,6 @@ export const ArticleDetailView: React.FC<Props> = (props: Props) => {
             handleHttpPromise(httpClient.get(`/articles`), setRelatedArticles);
         }
     }, [relatedArticles]);
-
-    const commentVote = (commentId: string, rating: 'up' | 'down') => {
-        handleHttpPromise(httpClient.post<Comment>(`/comments/${commentId}/vote/${rating}`), setVoteComment, () => fetchArticle(params.id));
-    }
-    const onCommentUpVote = (commentId: string) => commentVote(commentId, 'up');
-    const onCommentDownVote = (commentId: string) => commentVote(commentId, 'down');
-    const onCommentPost = (comment: CreateComment) => {
-        handleHttpPromise(httpClient.post<Comment>(`/comments`, {
-            articleId: article.data!.articleId,
-            ...comment,
-        }), setNewComment, () => fetchArticle(params.id));
-    }
     return (
         <>
             <div className="row align-items-start">
@@ -66,25 +49,14 @@ export const ArticleDetailView: React.FC<Props> = (props: Props) => {
                         <>
                             <ArticleDetail article={article.data}/>
                             <hr className="mt-5 mb-4"/>
-                            {/*todo move to comment section, due to websockets*/}
-                            <CommentForm
-                                loading={newComment.loading}
-                                count={article.data.comments.length}
-                                onSubmit={onCommentPost}
-                            />
-                            {article.data.comments.map((comment) => (
-                                <CommentListItem
-                                    key={comment.commentId}
-                                    comment={comment}
-                                    onUpVote={onCommentUpVote?.bind(undefined, comment.commentId)}
-                                    onDownVote={onCommentDownVote?.bind(undefined, comment.commentId)}
-                                />
-                            ))}
+                            <CommentSection article={article.data}
+                                            onCommentVote={() => fetchArticle(params.id)}
+                                            onNewComment={() => fetchArticle(params.id)}/>
                         </>
                     ) : article.loading ? (
                         <Spinner/>
                     ) : (
-                        <Alert type="danger">Error fetching related articles</Alert>
+                        <Alert type="danger">Error fetching article</Alert>
                     )}
                 </div>
                 <div className={classNames('col-12 col-md-4 order-0 order-md-1 pb-4', styles.relatedArticles)}>
