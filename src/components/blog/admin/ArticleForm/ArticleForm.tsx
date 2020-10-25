@@ -10,7 +10,9 @@ import {ImageUpload} from "../../../elementary/form/ImageUpload/ImageUpload";
 
 const validationSchema = Yup.object<ArticleDraft>({
     title: Yup.string().required('Please fill the article title'),
-    content: Yup.string().required('Please fill the content')
+    imageId: Yup.string().required('Upload image'),
+    content: Yup.string().required('Please fill the content'),
+    perex: Yup.string().required('Please fill in the perex')
 })
 
 interface Props {
@@ -21,9 +23,9 @@ interface Props {
 
 export const ArticleForm: React.FC<Props> = (props: Props) => {
     const isEditing = !!props.article;
-    const defaultValues = isEditing
-    ? {title: props.article!.title, content: props.article!.content, image: props.article!.imageId}
-    : {title: '', content: '', image: undefined};
+    const defaultValues: ArticleDraft = isEditing
+    ? {title: props.article!.title, perex: props.article!.perex, content: props.article!.content, imageId: props.article!.imageId}
+    : {title: '', perex: '', content: '', imageId: undefined};
     return (
         <Formik initialValues={defaultValues}
                 onSubmit={values => props.onSubmit(values)}
@@ -44,9 +46,11 @@ export const ArticleForm: React.FC<Props> = (props: Props) => {
                                       onButtonClick={() => handleSubmit()}>
                     <Form>
                         <Field label="Article title" name="title" error={errors.title} touched={touched.title}/>
+                        <Field label="Perex" name="perex" error={errors.perex} touched={touched.perex}/>
                         <div className="form-group my-6">
                             <label className="d-block">Featured image</label>
-                            <ImageUpload existingImageId={props.article?.imageId} onUploadFinished={({imageId}) => handleChange('image')(imageId)}/>
+                            <ImageUpload imageId={values.imageId} onUploadFinished={({imageId}) => handleChange('imageId')(imageId)}/>
+                            {touched.imageId && errors.imageId && <small className="form-text text-danger">{errors.imageId}</small>}
                         </div>
                         <div className="form-group">
                             <label htmlFor="content">Content</label>

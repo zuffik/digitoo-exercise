@@ -7,8 +7,8 @@ import {Button} from '../../elementary/form/Button/Button';
 import classNames from 'classnames';
 import styles from './LoginForm.module.sass';
 
-const validationSchema = Yup.object({
-  email: Yup.string().required('Please fill in your email').email('This is not valid email'),
+const validationSchema = Yup.object<LoginCredentials>({
+  username: Yup.string().required('Please fill in your username'),
   password: Yup.string()
     .required('Please fill in your password')
     .min(6, 'Password must be at least 6 characters long'),
@@ -28,12 +28,12 @@ export const LoginForm: React.FC<Props> = (props: Props) => {
         {props.error && <div className="alert alert-danger">Log in was unsuccessful</div>}
         <Formik
           onSubmit={props.onLogin}
-          initialValues={{email: '', password: ''}}
+          initialValues={{username: '', password: ''}}
           validationSchema={validationSchema}
         >
           {({touched, errors}) => (
             <Form>
-              <Field type="email" name="email" label="E-mail" touched={touched.email} error={errors.email} />
+              <Field name="username" label="Username" touched={touched.username} error={errors.username} />
               <Field
                 type="password"
                 name="password"

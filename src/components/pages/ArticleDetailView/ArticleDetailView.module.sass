@@ -1,5 +1,9 @@
 @import "../../../styles/variables"
 
 .relatedArticles
+  a
+    color: inherit
+    &:hover
+      text-decoration: none
   @media (min-width: map-get($grid-breakpoints, 'md'))
     border-left: 1px solid $gray-300

@@ -6,12 +6,12 @@ import {NavLink} from '../NavLink/NavLink';
 import {useRouteExactMatch} from '../../../../services/routes/UseRouteExactMatch';
 import {FaArrowRight} from 'react-icons/fa';
 import {NavItem} from '../NavItem/NavItem';
-import {Tenant} from "../../../../services/types/entity/Tenant";
 import {Avatar} from "../../../elementary/Avatar/Avatar";
 import classNames from 'classnames';
+import {AccessToken} from "../../../../services/types/entity/AccessToken";
 
 interface Props {
-    user?: Tenant; // ?? really?
+    accessToken?: AccessToken; // ?? really?
     onLogOut?: () => void;
 }
 
@@ -39,7 +39,7 @@ export const NavBar: React.FC<Props> = (props: Props) => {
                     </div>
                 </div>
                 {
-                    props.user
+                    props.accessToken
                         ? (
                             <>
                                 <div className="navbar-nav">
@@ -55,10 +55,12 @@ export const NavBar: React.FC<Props> = (props: Props) => {
                                     </NavLink>
                                 </NavItem>
                                 <div className="nav-item dropdown">
-                                    <button className="dropdown-toggle btn btn-link btn-sm" onClick={() => setDropdownOpen(val => !val)}>
+                                    <button className="dropdown-toggle btn btn-link btn-sm"
+                                            onClick={() => setDropdownOpen(val => !val)}>
                                         <Avatar src="https://picsum.photos/48/48" size={32}/>
                                     </button>
-                                    <div className={classNames("dropdown-menu dropdown-menu-right", {show: dropdownOpen})} onClick={props.onLogOut}>
+                                    <div className={classNames("dropdown-menu dropdown-menu-right", {show: dropdownOpen})}
+                                         onClick={props.onLogOut}>
                                         <div className="dropdown-item">Log Out</div>
                                     </div>
                                 </div>

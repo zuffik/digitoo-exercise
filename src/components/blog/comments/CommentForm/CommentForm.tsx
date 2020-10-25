@@ -57,6 +57,7 @@ export const CommentForm: React.FC<Props> = (props: Props) => {
                     />
                   </div>
                 </div>
+                  <button type="submit" className="d-none"/>
               </Form>
             )}
           </Formik>

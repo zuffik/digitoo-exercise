@@ -1,15 +1,14 @@
 import {State} from './State';
-import {update} from '../wrappers/Update';
 import {Actions} from './Actions';
 import {Reducer as ReducerType} from 'redux';
 import {Action, AnyAction} from 'typescript-fsa';
+import {loginReducer} from "./reducers/Login";
+import {logoutReducer} from "./reducers/Logout";
 
 export const ActionReducers = {
-  [Actions.setLoading.type]: (state: State, action: Action<{isLoading: boolean}>) =>
-    update(state, {
-      isLoading: {$set: action.payload.isLoading},
-    }),
+    [Actions.logout.type]: logoutReducer,
+    [Actions.login.type]: loginReducer
 };
 
 export const Reducer: ReducerType<State, AnyAction> = (s: State = new State(), a: AnyAction): State =>
-  ActionReducers[a.type]?.(s, a as Action<any>);
+    ActionReducers[a.type]?.(s, a as Action<any>) || s;

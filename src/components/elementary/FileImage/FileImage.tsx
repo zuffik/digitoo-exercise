@@ -7,6 +7,6 @@ interface Props extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'src'> {
 export const FileImage: React.FC<Props> = ({file, ...props}: Props) => {
     const src = React.useMemo(() => URL.createObjectURL(file), [file])
     return (
-        <img {...props} src={src}/>
+        <img {...props} alt={props.alt} src={src}/>
     );
 };

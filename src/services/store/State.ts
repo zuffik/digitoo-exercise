@@ -1,3 +1,5 @@
+import {AccessToken} from "../types/entity/AccessToken";
+
 export class State {
-  isLoading: boolean = false;
+  accessToken?: AccessToken;
 }
