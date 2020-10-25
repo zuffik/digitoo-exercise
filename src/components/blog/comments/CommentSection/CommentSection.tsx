@@ -7,7 +7,7 @@ import {httpClient} from "../../../../services/http/HttpClient";
 import {Comment} from "../../../../services/types/entity/Comment";
 import {CreateComment} from "../../../../services/types/dto/CreateComment";
 import {defaultHttpState, HttpState} from "../../../../services/types/HttpState";
-import {useWebsocket} from "../../../../hooks/WebSocket";
+import {useWebsocketCommentEvents} from "../../../../hooks/CommentsWebSocket";
 
 interface Props {
     article: ArticleDetail;
@@ -18,24 +18,11 @@ interface Props {
 export const CommentSection: React.FC<Props> = ({onCommentVote, onNewComment, ...props}: Props) => {
     const [, setVoteComment] = React.useState<HttpState<Comment>>(defaultHttpState());
     const [newComment, setNewComment] = React.useState<HttpState<Comment>>(defaultHttpState());
-    const ws = useWebsocket();
-    React.useEffect(() => {
-        if (ws) {
-            ws.onReceiveJson(json => {
-                switch (json.changeType) {
-                    case "commentCreated":
-                        onNewComment(json.comment!);
-                        break;
-                    case "commentDownVoted":
-                        onCommentVote(json.comment!, 'down');
-                        break;
-                    case "commentUpVoted":
-                        onCommentVote(json.comment!, 'up');
-                        break;
-                }
-            });
-        }
-    }, [onCommentVote, onNewComment, ws]);
+    useWebsocketCommentEvents({
+        onCommentCreated: onNewComment,
+        onCommentUpVoted: comment => onCommentVote(comment, 'up'),
+        onCommentDownVoted: comment => onCommentVote(comment, 'down'),
+    });
     const commentVote = (commentId: string, rating: 'up' | 'down') => {
         handleHttpPromise(httpClient.post<Comment>(`/comments/${commentId}/vote/${rating}`), setVoteComment, response => onCommentVote(response.data, rating));
     }
